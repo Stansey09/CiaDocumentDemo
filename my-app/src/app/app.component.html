@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 mrgnbtm">
+      <h2>Upload Classified Document</h2>
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="DocumentTitle">Document Title</label>
+            <input type="text" class="form-control" formControlName="documentTitle" id="documentTitle1" aria-describedby="titleHelp" placeholder="Navidson Report...">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-12">
+            <label for="DocumentText">Document Text</label>
+            <textarea type="text" class="form-control" formControlName="documentText" id="exampleDocumentText" aria-describedby="documentHelp"></textarea>
+          </div>
+        </div>
+        <button type="submit" [disabled]="!userForm.valid" class="btn btn-danger">Create</button>
+      </form>
+    </div>
+    <!--
+    <div class="col-md-4 mrgnbtm">
+      <app-display-board
+       [userCount]="userCount"
+       (getUsersEvent)="getAllUsers()"
+      >
+      </app-display-board>
+    </div>
+    -->
+  </div>
+</div>
+<div class="mrgnbtm">
+  <div class="col-md-12">
+    <button type="button" (click)="getAllUsers()" class="btn">Get Available Documents</button>
+  </div>
+</div>
+<div class="mrgnbtm">
+  <form [formGroup]="redactedForm">
+    <label for="redactedText">Retrieved Document with Redactions</label>
+    <textarea type="text" class="form-control" formControlName="redactedTextField" id="exampleDocumentText" aria-describedby="documentHelp"></textarea>
+  </form>
+</div>
+<div class="mrgnbtm">
+  <app-users (getRedactedText)="getRedactedText($event)" *ngIf="users.length !== 0" [users]="users"></app-users>
+</div>

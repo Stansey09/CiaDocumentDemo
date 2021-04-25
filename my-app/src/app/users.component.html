@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Users</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Document Title</th>
+        <th>Secure Text Retrieval</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; let i = index">
+        <td>{{user.documentTitle}}</td>
+        <td><button type="button" (click)="_getRedactedText(user.documentTitle)" class="btn"> Get Redacted Text</button> </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
