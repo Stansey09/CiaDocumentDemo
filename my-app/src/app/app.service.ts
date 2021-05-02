@@ -11,15 +11,15 @@ export class AppService {
   rootURL = '/api';
 
   getUsers() {
-    return this.http.get(this.rootURL + '/users');
+    return this.http.get(this.rootURL + '/Documents');
   }
 
   addUser(user: any) {
-    return this.http.post(this.rootURL + '/user', {user});
+    return this.http.post(this.rootURL + '/Documents', {user});
   }
 
   getRedactedByTitle(title: any ) {
-    return this.http.get(this.rootURL + '/redacted/' + title);
+    return this.http.get(this.rootURL + '/Documents/' + title);
   }
 
 }

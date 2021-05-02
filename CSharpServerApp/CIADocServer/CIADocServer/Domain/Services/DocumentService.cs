@@ -18,6 +18,11 @@ namespace CIADocServer.Domain.Services
             documentDataStore = documentDS;
         }
 
+        public void AddDocument(ClassifiedDocument document)
+        {
+            this.documentDataStore.StoreNewDocument(document);
+        }
+
         ///<inheritdoc/>
         public string GetCensoredText(string docTitle, ClearanceLevel userLevel = ClearanceLevel.Unclassifed, IEnumerable<string> specialAuthorizations = null)
         {

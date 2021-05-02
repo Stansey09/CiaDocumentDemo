@@ -1,3 +1,4 @@
+using CIADocServer.Domain.DataStore;
 using CIADocServer.Domain.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,6 +29,8 @@ namespace CIADocServer
         {
             services.AddControllers();
             services.AddSingleton<IDocumentService, DocumentService>();
+            services.AddSingleton<ICensorshipRulesDataStore, InMemoryCensorRuleDataStore>();
+            services.AddSingleton<IDocumentDataStore, InMemoryDocumentDataStore>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

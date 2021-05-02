@@ -1,4 +1,4 @@
-﻿using CIADocServer.Domain.Models;
+using CIADocServer.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,5 +22,11 @@ namespace CIADocServer.Domain.Services
         /// <param name="specialAuthorizations">the special authorizations possesed by the user. Null is treated as empty. Optional. If absent assumes no special authorizations. </param>
         /// <returns>The text censored as applicable to the user</returns>
         string GetCensoredText(string docTitle, ClearanceLevel userLevel = ClearanceLevel.Unclassifed, IEnumerable<string> specialAuthorizations = null);
+
+        /// <summary>
+        /// Add a document to the datastore
+        /// </summary>
+        /// <param name="document"></param>
+        void AddDocument(ClassifiedDocument document);
     }
 }
